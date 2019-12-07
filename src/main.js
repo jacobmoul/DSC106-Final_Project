@@ -42,7 +42,7 @@ var lineOptions = {
     tooltip: {
         crosshairs: true,
         shared: true,
-        pointFormat: 'Age: {point.y} years'
+        pointFormat: 'Median price for this rating: ${point.y}'
     },
     plotOptions: {
         spline: {
@@ -80,8 +80,8 @@ var bubbleOptions = {
     },
     plotOptions: {
         packedbubble: {
-            minSize: '35',
-            maxSize: '70',
+            minSize: '10%',
+            maxSize: '80%',
             zMin: 0,
             zMax: 1000,
             layoutAlgorithm: {
