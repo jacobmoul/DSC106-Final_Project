@@ -7,5 +7,6 @@
 }
 
 body {
-    background-color: #f0ead6
+    background-color: #f0ead6;
+    background-image: url('assets/grape-header.png');
 }
