@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<document>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js"></script>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="http://code.highcharts.com/maps/modules/map.js"></script>
+        <script src="https://code.highcharts.com/highcharts-more.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+        <script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="wrapper">
+            <div  class="columns">
+                <main class="column main">
+                    <div class="section">
+                        <div class="level">
+                            <div class="level-left">
+                                <div class="level-item">
+                                    <div class="title has-text-light">What Makes Wine Fine?</div>
+                                </div>
+                            </div>
+                                <div class="level-right">
+                                    <div class="level-item">
+
+                                    <div class="dropdown is-right">
+                                        <div class="dropdown-trigger">
+                                            <button class="button is-dark" aria-haspopup="true" aria-controls="dropdown-menu">
+                                            <span id="dropdown-text">Choose Wine</span>
+                                            </button>
+                                        </div>
+                                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                                            <div class="dropdown-content has-background-dark">
+                                            <button class="dropdown-item has-text-light has-background-dark" value="bordeaux-style_red_blend" onclick="chooseWine(this.value, this.innerHTML)">
+                                                Bordeaux-Style Red Blend
+                                            </button>
+                                            <button class="dropdown-item has-text-light has-background-dark" value="cabernet_sauvignon" onclick="chooseWine(this.value, this.innerHTML)">
+                                                Cabarnet Sauvignon
+                                            </button>
+                                            <button class="dropdown-item has-text-light has-background-dark" value="chardonnay" onclick="chooseWine(this.value, this.innerHTML)">
+                                                Chardonnay
+                                            </button>
+                                            <button class="dropdown-item has-text-light has-background-dark" value="malbec" onclick="chooseWine(this.value, this.innerHTML)">
+                                                Malbec
+                                            </button>
+                                            <button class="dropdown-item has-text-light has-background-dark" value="merlot" onclick="chooseWine(this.value, this.innerHTML)">
+                                                Merlot
+                                            </button>
+                                            <button class="dropdown-item has-text-light has-background-dark" value="nebbiolo" onclick="chooseWine(this.value, this.innerHTML)">
+                                                Nebbiolo
+                                            </button>
+                                            <button class="dropdown-item has-text-light has-background-dark" value="pinot_gris" onclick="chooseWine(this.value, this.innerHTML)">
+                                                Pinot Gris
+                                            </button>
+                                            <button class="dropdown-item has-text-light has-background-dark" value="pinot_noir" onclick="chooseWine(this.value, this.innerHTML)">
+                                                Pinot Noir
+                                            </button>
+                                            <button class="dropdown-item has-text-light has-background-dark" value="portuguese_red" onclick="chooseWine(this.value, this.innerHTML)">
+                                                Portuguese Red
+                                            </button>
+                                            <button class="dropdown-item has-text-light has-background-dark" value="red_blend" onclick="chooseWine(this.value, this.innerHTML)">
+                                                Red Blend
+                                            </button>
+                                            <button class="dropdown-item has-text-light has-background-dark" value="rhone-style_red_blend" onclick="chooseWine(this.value, this.innerHTML)">
+                                                Rhone-Style Red Blend
+                                            </button>
+                                            <button class="dropdown-item has-text-light has-background-dark" value="riesling" onclick="chooseWine(this.value, this.innerHTML)">
+                                                Riesling
+                                            </button>
+                                            <button class="dropdown-item has-text-light has-background-dark" value="rose" onclick="chooseWine(this.value, this.innerHTML)">
+                                                Rosé
+                                            </button>
+                                            <button class="dropdown-item has-text-light has-background-dark" value="sangiovese" onclick="chooseWine(this.value, this.innerHTML)">
+                                                Sangiovese
+                                            </button>
+                                            <button class="dropdown-item has-text-light has-background-dark" value="sauvignon_blanc" onclick="chooseWine(this.value, this.innerHTML)">
+                                                Sauvignon Blanc
+                                            </button>
+                                            <button class="dropdown-item has-text-light has-background-dark" value="sparkling_blend" onclick="chooseWine(this.value, this.innerHTML)">
+                                                Sparkling Blend
+                                            </button>
+                                            <button class="dropdown-item has-text-light has-background-dark" value="syrah" onclick="chooseWine(this.value, this.innerHTML)">
+                                                Syrah
+                                            </button>
+                                            <button class="dropdown-item has-text-light has-background-dark" value="tempranillo" onclick="chooseWine(this.value, this.innerHTML)">
+                                                Tempranillo
+                                            </button>
+                                            <button class="dropdown-item has-text-light has-background-dark" value="white_blend" onclick="chooseWine(this.value, this.innerHTML)">
+                                                White Blend
+                                            </button>
+                                            <button class="dropdown-item has-text-light has-background-dark" value="zinfandel" onclick="chooseWine(this.value, this.innerHTML)">
+                                                Zinfandel
+                                            </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="columns">
+                            <div class="column">
+                                <div class="box is-primary has-text-centered has-background-dark">
+                                    <h1 id="banner" class="subtitle has-text-light has-text-weight-bold">TITLE</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="columns is-multiline is-variable is-1">
+                            <div class="column is-6">
+                                <article class="message is-dark">
+                                    <div class="message-header">
+                                        <p>How should your wine taste?</p>
+                                    </div>
+                                    <div class="message-body">
+                                        <div id="bubble-chart" class="chart">
+                                            Bubble Chart Here
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="column is-6">
+                            <article class="message is-dark">
+                                <div class="message-header">
+                                <p>How much should you pay for your wine?</p>
+                                </div>
+                                <div class="message-body">
+                                <div id="line-chart" class="chart" style="width: 100%;">
+                                        Price vs. Rating Here
+                                    </div>
+                                </div>
+                            </article>
+                            </div>
+                            <div class="column is-6">
+                            <article class="message is-dark">
+                                <div class="message-header">
+                                <p>Where should your wine come from?</p>
+                                </div>
+                                <div class="message-body">
+                                <div id="map-chart" class="chart">
+                                    Map Here
+                                </div>
+                                </div>
+                            </article>
+                            </div>
+                            <div class="column is-6">
+                            <article class="message is-dark">
+                                <div class="message-header">
+                                <p>How old should your wine be?</p>
+                                </div>
+                                <div class="message-body">
+                                <div id="bar-chart" class="chart">
+                                    Age Chart Here
+                                </div>
+                                </div>
+                            </article>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</document>

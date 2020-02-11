@@ -1,0 +1,12 @@
+.chart {
+    width: 100%;
+}
+
+.message-body {
+    background-color: #787878;
+}
+
+body {
+    background-color: #f0ead6;
+    background-image: url('assets/grape-header.png');
+}
